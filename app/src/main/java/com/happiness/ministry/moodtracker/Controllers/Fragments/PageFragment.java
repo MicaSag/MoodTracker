@@ -39,6 +39,7 @@ public class PageFragment extends Fragment {
     }
 
     @Override
+    // Called as soon as a fragment asks to be shown
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -51,6 +52,10 @@ public class PageFragment extends Fragment {
 
         // Get data from Bundle (created in method newInstance)
         int position = getArguments().getInt(KEY_POSITION, -1);
+
+        // Update widgets with it
+        rootView.setBackground(getResources().obtainTypedArray(R.array.colorPagesViewPager).getDrawable(position));
+        imageView.setImageDrawable(getResources().obtainTypedArray(R.array.array_smileys).getDrawable(position));
 
         return fragmentPageLayout;
     }
