@@ -29,5 +29,8 @@ public class MainActivity extends AppCompatActivity {
         pager.setAdapter(new PageAdapter(getSupportFragmentManager()) {
         });
 
+        // Positioning the front page on Mood by default : smiley happy
+        pager.setCurrentItem(3);
+
     }
 }
