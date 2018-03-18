@@ -16,7 +16,7 @@ import com.happiness.ministry.moodtracker.R;
  */
 public class PageFragment extends Fragment {
 
-    // Create keys for our Bundle
+    // Create keys for the Bundle of the fragment
     private static final String KEY_POSITION="position";
 
     public PageFragment() {

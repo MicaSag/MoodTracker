@@ -8,9 +8,9 @@ import com.happiness.ministry.moodtracker.Utilities.DateUtilities;
 
 public class Mood {
 
-    private int mMood;              // Mood index
+    private int mMood;              // Mood index of the "array_smileys" (res/values/arrays.xml)
     private String mComment;        // Comment of the Mood
-    private int mDateSSAAMMJJ;      // Backup date of the Mood
+    private int mDateSSAAMMJJ;      // Backup date of the Mood ( current date )
 
     /**
      * Constructor by default
@@ -21,7 +21,7 @@ public class Mood {
 
         mMood = 3;             // Happy Mood by default
         mComment = "";         // Comment empty by default
-        // Day of year in Format int SSAAMMJJ
+        // Current date in Format int SSAAMMJJ
         mDateSSAAMMJJ = DateUtilities.getIntDateOfDaySSAAMMJJ();
     }
 
