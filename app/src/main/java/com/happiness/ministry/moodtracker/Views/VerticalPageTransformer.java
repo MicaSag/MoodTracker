@@ -3,6 +3,10 @@ package com.happiness.ministry.moodtracker.Views;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+/**
+ * Created by Michaël SAGOT on 17/03/2018.
+ */
+
 public class VerticalPageTransformer implements ViewPager.PageTransformer {
 
     @Override
