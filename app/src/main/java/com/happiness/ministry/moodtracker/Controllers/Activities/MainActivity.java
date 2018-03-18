@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             if ( mMoodPreferences.getLastMood().getDateSSAAMMJJ()
                     < DateUtilities.getIntDateOfDaySSAAMMJJ() ){
                 // Then it is a new day
-                // Calculation of the current new index
+                // Calculation of the new current index
                 // If we are at the end of list then the current index will be the first post of the list
                 if ( ( mMoodPreferences.getLastMoodIndex() + 1 ) > 6 ) {
                     mMoodPreferences.setLastMoodIndex(0);
@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Positioning the front page on Mood by default : smiley happy
-        pager.setCurrentItem(3);
+        pager.setCurrentItem(mMoodPreferences.getMoodHistorical().
+                get(mMoodPreferences.getLastMoodIndex()).getMood());
     }
 }
