@@ -1,6 +1,7 @@
 package com.happiness.ministry.moodtracker.Controllers.Fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,10 +15,20 @@ import com.happiness.ministry.moodtracker.R;
 /**
  * PageFragment class
  */
-public class PageFragment extends Fragment {
+public class PageFragment extends Fragment  implements View.OnClickListener {
 
     // Create keys for the Bundle of the fragment
     private static final String KEY_POSITION="position";
+
+    // ===>> CALL BACK <====
+    //Declare a callback
+    private OnButtonClickedListener mCallback;
+
+    //Declare our interface that will be implemented by any container activity
+    public interface OnButtonClickedListener {
+        public void onButtonClicked(View view);
+    }
+    //=======================
 
     public PageFragment() {
         // Required empty public constructor
@@ -57,7 +68,30 @@ public class PageFragment extends Fragment {
         rootView.setBackground(getResources().obtainTypedArray(R.array.colorPagesViewPager).getDrawable(position));
         imageView.setImageDrawable(getResources().obtainTypedArray(R.array.array_smileys).getDrawable(position));
 
+        // set the listening of buttons "comment" & history" on the PageFragment
+        fragmentPageLayout.findViewById(R.id.fragment_page_comment).setOnClickListener(this);
+        fragmentPageLayout.findViewById(R.id.fragment_page_history).setOnClickListener(this);
+
+
         return fragmentPageLayout;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        // Creating callback after being attached to parent activity
+        try {
+            //Parent activity will automatically subscribe to callback
+            mCallback = (OnButtonClickedListener) getActivity();
+        } catch (ClassCastException e) {
+            throw new ClassCastException(e.toString()+ " must implement OnButtonClickedListener");
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        // Spreads the click to the parent activity
+        mCallback.onButtonClicked(view);
+    }
 }

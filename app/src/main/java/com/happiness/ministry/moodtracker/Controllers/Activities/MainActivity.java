@@ -3,15 +3,18 @@ package com.happiness.ministry.moodtracker.Controllers.Activities;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import com.google.gson.Gson;
 import com.happiness.ministry.moodtracker.Adapters.PageAdapter;
+import com.happiness.ministry.moodtracker.Controllers.Fragments.PageFragment;
 import com.happiness.ministry.moodtracker.Models.Mood;
 import com.happiness.ministry.moodtracker.Models.MoodPreferences;
 import com.happiness.ministry.moodtracker.R;
 import com.happiness.ministry.moodtracker.Utilities.DateUtilities;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  implements PageFragment.OnButtonClickedListener{
 
     // Create the preferences object
     MoodPreferences mMoodPreferences;
@@ -87,5 +90,23 @@ public class MainActivity extends AppCompatActivity {
         // Positioning the front page on Mood by default : smiley happy
         pager.setCurrentItem(mMoodPreferences.getMoodHistorical().
                 get(mMoodPreferences.getLastMoodIndex()).getMood());
+    }
+
+    @Override
+    public void onButtonClicked(View view) {
+        // Here, thanks to the callback implemented in the PageFragment
+        // We are going to manage the click on the various buttons of PageFragment
+        switch (view.getId()) {
+            case R.id.fragment_page_history :
+                Log.i("HISTORY_CLICK", "history");
+                mMoodPreferences.getLastMood().setComment("I'have clicked on HISTORY");
+                break;
+
+            case R.id.fragment_page_comment :
+                Log.i("COMMENT_CLICK", "comment");
+                mMoodPreferences.getLastMood().setComment("I'have clicked on COMMENT");
+                break;
+        }
+
     }
 }
