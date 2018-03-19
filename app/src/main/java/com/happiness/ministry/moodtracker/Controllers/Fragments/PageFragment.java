@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.happiness.ministry.moodtracker.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * PageFragment class
  */
 public class PageFragment extends Fragment {
 
@@ -26,10 +26,10 @@ public class PageFragment extends Fragment {
     // Method that will create a new instance of PageFragment, and add data to its bundle.
     public static PageFragment newInstance(int position) {
 
-        // 2.1 Create new fragment
+        // Create new fragment
         PageFragment frag = new PageFragment();
 
-        // 2.2 Create bundle and add it some data
+        // Create bundle and add it some data
         Bundle args = new Bundle();
         args.putInt(KEY_POSITION, position);
 
