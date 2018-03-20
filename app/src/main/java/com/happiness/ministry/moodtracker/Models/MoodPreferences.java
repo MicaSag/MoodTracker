@@ -21,29 +21,15 @@ public class MoodPreferences {
         this.mLastSavedMoodIndex = 0;                           // The first index 0
         List<Mood> moodList = new ArrayList<Mood>(7); // ArrayList of 7 Moods
         moodList.add(new Mood());                               // Mood by default
-        // Put Default Mood in the List : post (0)
-        mMoodHistory = moodList;
-    }
-
-    public MoodPreferences(int lastMoodIndex, List<Mood> moodHistorical) {
-        this.mLastSavedMoodIndex = lastMoodIndex;
-        this.mMoodHistory = moodHistorical;
-    }
-
-    public int getLastMoodIndex() {
-        return mLastSavedMoodIndex;
-    }
-
-    public void setLastMoodIndex(int lastMoodIndex) {
-        mLastSavedMoodIndex = lastMoodIndex;
+        mMoodHistory = moodList;                                // Put Default Mood in the List : post (0)
     }
 
     public List<Mood> getMoodHistorical() {
         return mMoodHistory;
     }
 
-    public void setMoodHistorical(List<Mood> moodHistorical) {
-        mMoodHistory = moodHistorical;
+    public int getLastSavedMoodIndex() {
+        return mLastSavedMoodIndex;
     }
 
     /**
@@ -56,8 +42,12 @@ public class MoodPreferences {
     /**
      * Method which adds a new mood to the historical list
      */
-    public void addMoodToPreferences (int lastSavedMoodIndex, Mood mood) {
-        this.mLastSavedMoodIndex = lastSavedMoodIndex;
+    public void addMoodToPreferences (Mood mood) {
+
+        // Adds a new Mood in the history
         this.getMoodHistorical().add(mood);
+
+        // Save index of the last Mood added
+        this.mLastSavedMoodIndex = this.getMoodHistorical().size() - 1;
     }
 }

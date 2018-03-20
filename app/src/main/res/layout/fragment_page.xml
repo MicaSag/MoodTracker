@@ -6,9 +6,9 @@
              android:gravity="center"
              tools:context="com.happiness.ministry.moodtracker.Controllers.Fragments.PageFragment">
 
-    <!-- Comment Button -->
+    <!-- History Button -->
     <Button
-        android:id="@+id/fragment_page_comment"
+        android:id="@+id/fragment_page_history"
         android:layout_width="45dp"
         android:layout_height="35dp"
         android:layout_gravity="bottom|end"
@@ -17,9 +17,9 @@
         />
 
 
-    <!-- History Button -->
+    <!-- Comment Button -->
     <Button
-        android:id="@+id/fragment_page_history"
+        android:id="@+id/fragment_page_comment"
         android:layout_width="35dp"
         android:layout_height="42dp"
         android:layout_gravity="bottom|start"
