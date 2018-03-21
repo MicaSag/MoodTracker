@@ -8,7 +8,7 @@
 
     <!-- History Button -->
     <Button
-        android:id="@+id/fragment_page_history"
+        android:id="@+id/fragment_page_history_btn"
         android:layout_width="45dp"
         android:layout_height="35dp"
         android:layout_gravity="bottom|end"
@@ -19,7 +19,7 @@
 
     <!-- Comment Button -->
     <Button
-        android:id="@+id/fragment_page_comment"
+        android:id="@+id/fragment_page_comment_btn"
         android:layout_width="35dp"
         android:layout_height="42dp"
         android:layout_gravity="bottom|start"
@@ -30,7 +30,7 @@
 
     <!-- Smiley image -->
     <ImageView
-        android:id="@+id/fragment_page_smiley"
+        android:id="@+id/fragment_page_smiley_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

@@ -19,7 +19,7 @@ public class MoodPreferences {
     public MoodPreferences () {
 
         this.mLastSavedMoodIndex = 0;                           // The first index 0
-        List<Mood> moodList = new ArrayList<Mood>(7); // ArrayList of 7 Moods
+        List<Mood> moodList = new ArrayList<Mood>(8); // ArrayList of 7 Moods
         moodList.add(new Mood());                               // Mood by default
         mMoodHistory = moodList;                                // Put Default Mood in the List : post (0)
     }

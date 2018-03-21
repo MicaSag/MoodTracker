@@ -1,290 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.happiness.ministry.moodtracker.Controllers.Activities.HistoryActivity">
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/activity_history_linear_7"
+    <FrameLayout
+        android:id="@+id/activity_history_7"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal" >
-        <FrameLayout
-            android:id="@+id/activity_history_frame_7"
-            android:layout_width="match_parent"
-            android:layout_weight="2"
-            android:background="@color/warm_grey"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/activity_history_text_7"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:text="Il y a une semaine"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-            <!-- Comment Button six -->
-            <Button
-                android:id="@+id/activity_history_btn_7"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center|end"
-                android:layout_margin="20dp"
-                android:background="@drawable/ic_comment_black_48px"/>
-        </FrameLayout>
-        <Space
-            android:id="@+id/activity_history_blank_7"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:background="@android:color/darker_gray"
-            android:orientation="horizontal">
-        </Space>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/activity_history_linear_6"
+        android:layout_weight="1" >
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/activity_history_6"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal" >
-        <FrameLayout
-            android:id="@+id/activity_history_frame_6"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:background="@color/warm_grey"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/activity_history_text_6"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:text="Il y a une semaine"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-            <!-- Comment Button six -->
-            <Button
-                android:id="@+id/activity_history_btn_6"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center|end"
-                android:layout_margin="20dp"
-                android:background="@drawable/ic_comment_black_48px"/>
-        </FrameLayout>
-        <LinearLayout
-            android:id="@+id/activity_history_blank_6"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:background="@android:color/darker_gray"
-            android:orientation="horizontal">
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/activity_history_linear_5"
+        android:layout_weight="1" >
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/activity_history_5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal" >
-        <FrameLayout
-            android:id="@+id/activity_history_frame_5"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:background="@color/warm_grey"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/activity_history_text_5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:text="Il y a une semaine"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-            <!-- Comment Button six -->
-            <Button
-                android:id="@+id/activity_history_btn_5"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center|end"
-                android:layout_margin="20dp"
-                android:background="@drawable/ic_comment_black_48px"/>
-        </FrameLayout>
-        <LinearLayout
-            android:id="@+id/activity_history_blank_5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:background="@android:color/darker_gray"
-            android:orientation="horizontal">
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/activity_history_linear_4"
+        android:layout_weight="1" >
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/activity_history_4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal" >
-        <FrameLayout
-            android:id="@+id/activity_history_frame_4"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:background="@color/warm_grey"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/activity_history_text_4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:text="Il y a une semaine"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-            <!-- Comment Button six -->
-            <Button
-                android:id="@+id/activity_history_btn_4"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center|end"
-                android:layout_margin="20dp"
-                android:background="@drawable/ic_comment_black_48px"/>
-        </FrameLayout>
-        <LinearLayout
-            android:id="@+id/activity_history_blank_4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:background="@android:color/darker_gray"
-            android:orientation="horizontal">
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/activity_history_linear_3"
+        android:layout_weight="1" >
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/activity_history_3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal" >
-        <FrameLayout
-            android:id="@+id/activity_history_frame_3"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:background="@color/warm_grey"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/activity_history_text_3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:text="Il y a une semaine"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-            <!-- Comment Button six -->
-            <Button
-                android:id="@+id/activity_history_btn_3"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center|end"
-                android:layout_margin="20dp"
-                android:background="@drawable/ic_comment_black_48px"/>
-        </FrameLayout>
-        <LinearLayout
-            android:id="@+id/activity_history_blank_3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:background="@android:color/darker_gray"
-            android:orientation="horizontal">
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/activity_history_linear_2"
+        android:layout_weight="1" >
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/activity_history_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal" >
-        <FrameLayout
-            android:id="@+id/activity_history_frame_2"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:background="@color/warm_grey"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/activity_history_text_2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:text="Il y a une semaine"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-            <!-- Comment Button six -->
-            <Button
-                android:id="@+id/activity_history_btn_2"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center|end"
-                android:layout_margin="20dp"
-                android:background="@drawable/ic_comment_black_48px"/>
-        </FrameLayout>
-        <LinearLayout
-            android:id="@+id/activity_history_blank_2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:background="@android:color/darker_gray"
-            android:orientation="horizontal">
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/activity_history_linear_1"
+        android:layout_weight="1" >
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/activity_history_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal" >
-        <FrameLayout
-            android:id="@+id/activity_history_frame_1"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:background="@color/warm_grey"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/activity_history_text_1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:text="Il y a une semaine"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-            <!-- Comment Button six -->
-            <Button
-                android:id="@+id/activity_history_btn_1"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center|end"
-                android:layout_margin="20dp"
-                android:background="@drawable/ic_comment_black_48px"/>
-        </FrameLayout>
-        <LinearLayout
-            android:id="@+id/activity_history_blank_1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:background="@android:color/darker_gray"
-            android:orientation="horizontal">
-        </LinearLayout>
-    </LinearLayout>
-
+        android:layout_weight="1" >
+    </FrameLayout>
 </LinearLayout>

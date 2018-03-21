@@ -8,4 +8,14 @@
         <item>@drawable/smiley_happy</item>
         <item>@drawable/smiley_super_happy</item>
     </array>
+    <!-- References to the images smiley used for the different moods -->
+    <array name="array_history">
+        <item>@id/activity_history_7</item>
+        <item>@id/activity_history_6</item>
+        <item>@id/activity_history_5</item>
+        <item>@id/activity_history_4</item>
+        <item>@id/activity_history_3</item>
+        <item>@id/activity_history_2</item>
+        <item>@id/activity_history_1</item>
+    </array>
 </resources>

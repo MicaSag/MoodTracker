@@ -15,7 +15,6 @@ import com.happiness.ministry.moodtracker.Controllers.Fragments.PageFragment;
 import com.happiness.ministry.moodtracker.Models.Mood;
 import com.happiness.ministry.moodtracker.Models.MoodPreferences;
 import com.happiness.ministry.moodtracker.R;
-import com.happiness.ministry.moodtracker.Utilities.DateUtilities;
 
 public class MainActivity extends AppCompatActivity  implements PageFragment.OnButtonClickedListener{
 
@@ -30,6 +29,9 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
 
     // Create the key saving of the preferences of the application
     public static final String PREF_KEY_MOOD = "PREF_KEY_MOOD";
+
+    // Create the key Preferences
+    public static final String KEY_PREFERENCES = "KEY_PREFERENCES";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
         // Read Preferences
         mPreferences = getPreferences(MODE_PRIVATE);
         // TEST == >>> Allows to erase all the preferences ( Useful for the test phase )
-        // preferences.edit().clear().commit();
+        //mPreferences.edit().clear().commit();
 
         // Recovered PREF_KEY_MOOD in a String Object
         String moodPreferences = mPreferences.getString(PREF_KEY_MOOD,null);
@@ -63,14 +65,21 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
             Gson gson = new Gson();
             mMoodPreferences = gson.fromJson(moodPreferences,MoodPreferences.class);
 
+            Log.i("MOOD", "____START____");
+            Log.i("MOOD", "Index      = "+String.valueOf(mMoodPreferences.getLastSavedMoodIndex()));
+            Log.i("MOOD", "Mood Index = "+mMoodPreferences.getLastMood().getMoodIndex());
+            Log.i("MOOD", "Comment    = "+mMoodPreferences.getLastMood().getComment());
+            Log.i("MOOD", "Date       = "+mMoodPreferences.getLastMood().getDateSSAAMMJJ());
+
             // If the backup date of the last mood is smaller than the current date
             // Then it is a new day
             if ( mMoodPreferences.getLastMood().getDateSSAAMMJJ()
-                    < DateUtilities.getIntDateOfDaySSAAMMJJ() ){
-
+                        <  (mMoodPreferences.getLastMood().getDateSSAAMMJJ() + 1) ) {
+            //   < DateUtilities.getIntDateOfDaySSAAMMJJ() ){
+                Log.i("MOOD","NEW DAY");
                 // If the list is already full, then we remove the first element of the list
                 // And we add a new Mood by default
-                if ( mMoodPreferences.getMoodHistorical().size() == 7 ) {
+                if ( mMoodPreferences.getMoodHistorical().size() == 8 ) {
                     mMoodPreferences.getMoodHistorical().remove(0);
                 }
 
@@ -87,10 +96,11 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
             // Creation of a new MoodPreferences Object with one Mood by Default
             mMoodPreferences = new MoodPreferences();
         }
-        Log.i("MOOD", "Index   = "+String.valueOf(mMoodPreferences.getLastSavedMoodIndex()));
-        Log.i("MOOD", "Mood    = "+mMoodPreferences.getLastMood().getMood());
-        Log.i("MOOD", "Comment = "+mMoodPreferences.getLastMood().getComment());
-        Log.i("MOOD", "Date    = "+mMoodPreferences.getLastMood().getDateSSAAMMJJ());
+        Log.i("MOOD", "____END____");
+        Log.i("MOOD", "Index        = "+String.valueOf(mMoodPreferences.getLastSavedMoodIndex()));
+        Log.i("MOOD", "Mood Index   = "+mMoodPreferences.getLastMood().getMoodIndex());
+        Log.i("MOOD", "Comment      = "+mMoodPreferences.getLastMood().getComment());
+        Log.i("MOOD", "Date         = "+mMoodPreferences.getLastMood().getDateSSAAMMJJ());
     }
 
     // Method allowing to configure the viewPager
@@ -105,7 +115,7 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
         });
 
         // Positioning the front page on Mood by default : smiley happy
-        pager.setCurrentItem(mMoodPreferences.getLastMood().getMood());
+        pager.setCurrentItem(mMoodPreferences.getLastMood().getMoodIndex());
     }
 
     @Override
@@ -113,14 +123,23 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
         // Here, thanks to the callback implemented in the PageFragment
         // We are going to manage the click on the various buttons of PageFragment
         switch (view.getId()) {
-            case R.id.fragment_page_history :
+            case R.id.fragment_page_history_btn :
                 Log.i("MOOD", "Click = history");
-                mMoodPreferences.getLastMood().setComment("I'have clicked on HISTORY");
+
+                // Create à PREF_KEY_MOOD String with a Gson Object
+                final Gson gson = new GsonBuilder()
+                        .serializeNulls()
+                        .disableHtmlEscaping()
+                        .create();
+                String json = gson.toJson(mMoodPreferences);
+
                 Intent historyActivity = new Intent(MainActivity.this, HistoryActivity.class);
+                historyActivity.putExtra(KEY_PREFERENCES,json);
+
                 startActivity(historyActivity);
                 break;
 
-            case R.id.fragment_page_comment :
+            case R.id.fragment_page_comment_btn :
                 Log.i("MOOD", "Click = comment");
                 mMoodPreferences.getLastMood().setComment("I'have clicked on COMMENT");
                 break;

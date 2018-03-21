@@ -60,7 +60,7 @@ public class PageFragment extends Fragment  implements View.OnClickListener {
 
         // Get widgets from layout
         FrameLayout rootView = fragmentPageLayout.findViewById(R.id.fragment_page_rootview);
-        ImageView imageView = fragmentPageLayout.findViewById(R.id.fragment_page_smiley);
+        ImageView imageView = fragmentPageLayout.findViewById(R.id.fragment_page_smiley_img);
 
         // Get data from Bundle (created in method newInstance)
         int position = getArguments().getInt(KEY_POSITION, -1);
@@ -70,8 +70,8 @@ public class PageFragment extends Fragment  implements View.OnClickListener {
         imageView.setImageDrawable(getResources().obtainTypedArray(R.array.array_smileys).getDrawable(position));
 
         // set the listening of buttons "comment" & history" on the PageFragment
-        fragmentPageLayout.findViewById(R.id.fragment_page_comment).setOnClickListener(this);
-        fragmentPageLayout.findViewById(R.id.fragment_page_history).setOnClickListener(this);
+        fragmentPageLayout.findViewById(R.id.fragment_page_comment_btn).setOnClickListener(this);
+        fragmentPageLayout.findViewById(R.id.fragment_page_history_btn).setOnClickListener(this);
 
 
         return fragmentPageLayout;
