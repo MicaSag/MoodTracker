@@ -39,12 +39,10 @@ public class HistoryActivity extends AppCompatActivity {
         Log.i("MOOD", "Index      = "+String.valueOf(mMoodPreferences.getLastSavedMoodIndex()));
         Log.i("MOOD", "Mood Index = "+mMoodPreferences.getLastMood().getMoodIndex());
         Log.i("MOOD", "Comment    = "+mMoodPreferences.getLastMood().getComment());
-        Log.i("MOOD", "Date       = "+mMoodPreferences.getLastMood().getDateSSAAMMJJ());
+        Log.i("MOOD", "Date       = "+mMoodPreferences.getLastMood().getDate());
 
         // If at least the mood precedent is present then Configure and show history fragments
         if (mMoodPreferences.getMoodHistorical().size()>1) this.configureAndShowMainFragment();
-        else configureAnsShowNoHistory();
-
     }
 
     // --------------
@@ -53,11 +51,6 @@ public class HistoryActivity extends AppCompatActivity {
 
     // Declare history fragment reference
     private HistoryFragment historyFragment;
-
-    // Method which configures and show no history message
-    private void configureAnsShowNoHistory() {
-
-    }
 
     // Method which configures and show history fragments
     private void configureAndShowMainFragment() {
@@ -84,8 +77,7 @@ public class HistoryActivity extends AppCompatActivity {
             // If no created HistoryFragment
             if (historyFragment == null) {
                 // Create new history fragment and send Mood in parameter
-                historyFragment = HistoryFragment.newInstance(mMoodPreferences
-                                                                .getMoodHistorical().get(i));
+                historyFragment = HistoryFragment.newInstance(mMoodPreferences.getMoodHistorical().get(i));
                 // Add it to FrameLayout container
                 getSupportFragmentManager().beginTransaction()
                         .add(resourceLayout,historyFragment)

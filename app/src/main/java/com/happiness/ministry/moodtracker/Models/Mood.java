@@ -2,6 +2,8 @@ package com.happiness.ministry.moodtracker.Models;
 
 import com.happiness.ministry.moodtracker.Utilities.DateUtilities;
 
+import java.util.Date;
+
 /**
  * Created by Michaël SAGOT on 18/03/2018.
  */
@@ -10,7 +12,7 @@ public class Mood {
 
     private int mMoodIndex;         // Mood index of the "array_smileys" (res/values/arrays.xml)
     private String mComment;        // Comment of the Mood
-    private int mDateSSAAMMJJ;      // Backup date of the Mood ( current date )
+    private Date mDate;             // Backup date of the Mood ( current date )
 
     /**
      * Constructor by default
@@ -21,16 +23,15 @@ public class Mood {
 
         mMoodIndex = 3;        // Happy Mood by default
         mComment = "";         // Comment empty by default
-        // Current date in Format int SSAAMMJJ
-        mDateSSAAMMJJ = DateUtilities.getIntDateOfDaySSAAMMJJ();
+        mDate = new Date();    // Current date
     }
 
     public int getMoodIndex() {
         return mMoodIndex;
     }
 
-    public void setType(int mood) {
-        mMoodIndex = mood;
+    public void setMoodIndex(int moodIndex) {
+        mMoodIndex = moodIndex;
     }
 
     public String getComment() {
@@ -41,7 +42,7 @@ public class Mood {
         mComment = comment;
     }
 
-    public int getDateSSAAMMJJ() {
-        return mDateSSAAMMJJ;
+    public Date getDate() {
+        return mDate;
     }
 }

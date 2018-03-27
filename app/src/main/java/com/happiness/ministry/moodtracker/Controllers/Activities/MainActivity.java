@@ -15,6 +15,9 @@ import com.happiness.ministry.moodtracker.Controllers.Fragments.PageFragment;
 import com.happiness.ministry.moodtracker.Models.Mood;
 import com.happiness.ministry.moodtracker.Models.MoodPreferences;
 import com.happiness.ministry.moodtracker.R;
+import com.happiness.ministry.moodtracker.Utilities.DateUtilities;
+
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity  implements PageFragment.OnButtonClickedListener{
 
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
         // Read Preferences
         mPreferences = getPreferences(MODE_PRIVATE);
         // TEST == >>> Allows to erase all the preferences ( Useful for the test phase )
+        //Log.i("MOOD","CLEAR COMMIT PREFERENCES");
         //mPreferences.edit().clear().commit();
 
         // Recovered PREF_KEY_MOOD in a String Object
@@ -69,13 +73,13 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
             Log.i("MOOD", "Index      = "+String.valueOf(mMoodPreferences.getLastSavedMoodIndex()));
             Log.i("MOOD", "Mood Index = "+mMoodPreferences.getLastMood().getMoodIndex());
             Log.i("MOOD", "Comment    = "+mMoodPreferences.getLastMood().getComment());
-            Log.i("MOOD", "Date       = "+mMoodPreferences.getLastMood().getDateSSAAMMJJ());
+            Log.i("MOOD", "Date       = "+DateUtilities.getIntDateSSAAMMJJ(mMoodPreferences.getLastMood().getDate()));
 
             // If the backup date of the last mood is smaller than the current date
             // Then it is a new day
-            if ( mMoodPreferences.getLastMood().getDateSSAAMMJJ()
-                        <  (mMoodPreferences.getLastMood().getDateSSAAMMJJ() + 1) ) {
-            //   < DateUtilities.getIntDateOfDaySSAAMMJJ() ){
+            if ( DateUtilities.getIntDateSSAAMMJJ(mMoodPreferences.getLastMood().getDate())
+                    < DateUtilities.getIntDateSSAAMMJJ(new Date()) ){
+
                 Log.i("MOOD","NEW DAY");
                 // If the list is already full, then we remove the first element of the list
                 // And we add a new Mood by default
@@ -100,7 +104,7 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
         Log.i("MOOD", "Index        = "+String.valueOf(mMoodPreferences.getLastSavedMoodIndex()));
         Log.i("MOOD", "Mood Index   = "+mMoodPreferences.getLastMood().getMoodIndex());
         Log.i("MOOD", "Comment      = "+mMoodPreferences.getLastMood().getComment());
-        Log.i("MOOD", "Date         = "+mMoodPreferences.getLastMood().getDateSSAAMMJJ());
+        Log.i("MOOD", "Date         = "+DateUtilities.getIntDateSSAAMMJJ(mMoodPreferences.getLastMood().getDate()));
     }
 
     // Method allowing to configure the viewPager
@@ -152,7 +156,12 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
         Log.i("MOOD","status MainActivity = paused");
 
         // Change the day Mood in MoodPreference
-        mMoodPreferences.getLastMood().setType(pager.getCurrentItem());
+        mMoodPreferences.getLastMood().setMoodIndex(pager.getCurrentItem());
+
+        Log.i("MOOD","Tab Index = "+ String.valueOf(mMoodPreferences.getLastSavedMoodIndex()));
+        Log.i("MOOD","Type Mood = "+ mMoodPreferences.getLastMood().getMoodIndex());
+        Log.i("MOOD","Comment   = "+ mMoodPreferences.getLastMood().getComment());
+        Log.i("MOOD","Date      = "+ String.valueOf(DateUtilities.getIntDateSSAAMMJJ(mMoodPreferences.getLastMood().getDate())));
 
         // Create à PREF_KEY_MOOD String with a Gson Object
         final Gson gson = new GsonBuilder()

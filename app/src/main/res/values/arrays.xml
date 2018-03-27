@@ -18,4 +18,17 @@
         <item>@id/activity_history_2</item>
         <item>@id/activity_history_1</item>
     </array>
+    <!-- history comment -->
+    <array name="array_history_comment">
+        <item>Aujourd hui</item>
+        <item>Hier</item>
+        <item>Avant-hier</item>
+        <item>Il y a trois jours</item>
+        <item>Il y a quatre jours</item>
+        <item>Il y a cinq jours</item>
+        <item>Il y a six jours</item>
+        <item>Il y a une semaine</item>
+        <item>Il y a plus d une semaine</item>
+        <item>Il y a plus d un mois</item>
+    </array>
 </resources>
