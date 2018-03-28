@@ -1,9 +1,10 @@
 # MoodTracker
 
-MoodTracker Android App
+MoodTracker is a Android App
 
-Michaël SAGOT : initial Version 1.0
+Creator : MichaÃ«l SAGOT 
 
+Version : Initial Version 1.0
 
 
 # Presentation
@@ -19,14 +20,14 @@ Thanks to the history screen, you can see at a glance your general mood.
 
 1. Clone MoodTracker repository in your local machine
 
-    Git command : git clone https://github.com/MicaSag//MoodTracker.git
+    Git command : git clone https:/github.com/MicaSag/MoodTracker.git
 
 
 2. To import MoodTracker project to Android Studio 
 
-	_ Start Android Studio and close any open Android Studio project
-	_ From the Android Studio menu select : File > New > Import Project
-	_ Select the MoodTracker project folder with the AndroidManifest.xml file and click Ok. 
+	* Start Android Studio and close any open Android Studio project
+	* From the Android Studio menu select : File > New > Import Project
+	* Select the MoodTracker project folder with the AndroidManifest.xml file and click Ok. 
 
 
 
