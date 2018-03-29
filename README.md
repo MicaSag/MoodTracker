@@ -1,3 +1,5 @@
+![MoodTracker Img](/app/src/main/res/drawable/MoodT.PNG)
+
 # MoodTracker
 
 MoodTracker is a Android App
@@ -33,4 +35,4 @@ Thanks to the history screen, you can see at a glance your general mood.
 
 # Contact
 
-You can contact me for any questions : sagotmickael@neuf.fr
+You can contact me for any questions : contact_moodtracker@sfr.fr
