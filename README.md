@@ -1,3 +1,5 @@
+![MoodTracker Img](/app/src/main/res/drawable/moods.png)
+
 # MoodTracker
 
 MoodTracker is a Android App
@@ -20,7 +22,7 @@ Thanks to the history screen, you can see at a glance your general mood.
 
 1. Clone MoodTracker repository in your local machine
 
-    Git command : git clone https:/github.com/MicaSag/MoodTracker.git
+    Git command : git clone https://github.com/MicaSag/MoodTracker.git
 
 
 2. To import MoodTracker project to Android Studio 
@@ -33,4 +35,4 @@ Thanks to the history screen, you can see at a glance your general mood.
 
 # Contact
 
-You can contact me for any questions : sagotmickael@neuf.fr
+You can contact me for any questions : contact_moodtracker@sfr.fr

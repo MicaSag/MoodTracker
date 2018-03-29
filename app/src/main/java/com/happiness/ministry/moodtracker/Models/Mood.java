@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class Mood {
 
-    private int mMoodIndex;         // Mood index of the "array_smileys" (res/values/arrays.xml)
+    private int mMoodIndex;         // Mood index (0 - 4) of the "array_smileys" (res/values/arrays.xml)
     private String mComment;        // Comment of the Mood
     private Date mDate;             // Backup date of the Mood ( current date )
 
