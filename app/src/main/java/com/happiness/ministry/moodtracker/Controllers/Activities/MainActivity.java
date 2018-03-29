@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
         // Here, thanks to the callback implemented in the PageFragment
         // We are going to manage the click on the various buttons of PageFragment
         switch (view.getId()) {
+
             // History Button Clicked
             case R.id.fragment_page_history_btn :
                 Log.i("MOOD", "Click = history");
@@ -147,6 +148,7 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
 
                 startActivity(historyActivity);
                 break;
+
 
             // Comment Button Clicked
             case R.id.fragment_page_comment_btn :

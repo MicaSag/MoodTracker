@@ -65,7 +65,9 @@ public class PageFragment extends Fragment  implements View.OnClickListener {
         int position = getArguments().getInt(KEY_POSITION, -1);
 
         // Update widgets with it
+        // Set Background Color of the Mood
         rootView.setBackground(getResources().obtainTypedArray(R.array.colorPagesViewPager).getDrawable(position));
+        // Set Image of the Mood
         imageView.setImageDrawable(getResources().obtainTypedArray(R.array.array_smileys).getDrawable(position));
 
         // set the listening of buttons "comment" & history" on the PageFragment

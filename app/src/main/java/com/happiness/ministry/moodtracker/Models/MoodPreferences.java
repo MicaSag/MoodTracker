@@ -12,14 +12,14 @@ import java.util.List;
 public class MoodPreferences {
 
     private int mLastSavedMoodIndex;    // Index of the list corresponding to the last Mood saved
-    private List<Mood> mMoodHistory;    // List containing 7 last Mood saved
+    private List<Mood> mMoodHistory;    // List containing 7 last Mood saved + Mood of the Day
     /**
      * Constructor by default
      */
     public MoodPreferences () {
 
         this.mLastSavedMoodIndex = 0;                           // The first index 0
-        List<Mood> moodList = new ArrayList<Mood>(8); // ArrayList of 7 Moods
+        List<Mood> moodList = new ArrayList<Mood>(8); // ArrayList of 8 Moods
         moodList.add(new Mood());                               // Mood by default
         mMoodHistory = moodList;                                // Put Default Mood in the List : post (0)
     }
