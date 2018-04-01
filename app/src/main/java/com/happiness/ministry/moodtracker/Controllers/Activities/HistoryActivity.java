@@ -12,7 +12,6 @@ import com.happiness.ministry.moodtracker.R;
 
 public class HistoryActivity extends AppCompatActivity {
 
-
     // Defined String Preferences
     private String mPreferences;
 
@@ -27,7 +26,7 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        // Get back Intent send to parameter by the MAinActivity
+        // Get back Intent send to parameter by the MainActivity
         Intent intent = getIntent();
         mPreferences = intent.getStringExtra(KEY_PREFERENCES);
 

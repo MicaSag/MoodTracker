@@ -31,4 +31,12 @@
         <item>Il y a plus d une semaine</item>
         <item>Il y a plus d un mois</item>
     </array>
+    <!-- mood text -->
+    <array name="array_mood_text">
+        <item>Sad</item>
+        <item>disappointed</item>
+        <item>Normal</item>
+        <item>Happy</item>
+        <item>Super Happy</item>
+    </array>
 </resources>

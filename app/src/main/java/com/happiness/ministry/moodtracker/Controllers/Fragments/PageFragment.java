@@ -28,7 +28,6 @@ public class PageFragment extends Fragment  implements View.OnClickListener {
     public interface OnButtonClickedListener {
         public void onButtonClicked(View view);
     }
-    //=======================
 
     public PageFragment() {
         // Required empty public constructor
@@ -70,9 +69,10 @@ public class PageFragment extends Fragment  implements View.OnClickListener {
         // Set Image of the Mood
         imageView.setImageDrawable(getResources().obtainTypedArray(R.array.array_smileys).getDrawable(position));
 
-        // set the listening of buttons "comment" & history" on the PageFragment
+        // set the listening of buttons "comment", "history" and "camembert" on the PageFragment
         fragmentPageLayout.findViewById(R.id.fragment_page_comment_btn).setOnClickListener(this);
         fragmentPageLayout.findViewById(R.id.fragment_page_history_btn).setOnClickListener(this);
+        fragmentPageLayout.findViewById(R.id.fragment_page_camembert_btn).setOnClickListener(this);
 
 
         return fragmentPageLayout;

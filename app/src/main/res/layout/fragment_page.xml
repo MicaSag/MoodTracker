@@ -16,6 +16,15 @@
         android:background="@drawable/ic_history_black"
         />
 
+    <!-- Camembert Button -->
+    <Button
+        android:id="@+id/fragment_page_camembert_btn"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="20dp"
+        android:background="@drawable/camembert_hole"
+        />
 
     <!-- Comment Button -->
     <Button

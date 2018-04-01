@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
 
             // If the backup date of the last mood is smaller than the current date
             // Then it is a new day
+            Log.i("MOOD", "DateCurrent      = "+DateUtilities.getIntDateSSAAMMJJ(new Date()));
             if ( DateUtilities.getIntDateSSAAMMJJ(mMoodPreferences.getLastMood().getDate())
                     < DateUtilities.getIntDateSSAAMMJJ(new Date()) ){
 
@@ -134,7 +135,8 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
 
             // History Button Clicked
             case R.id.fragment_page_history_btn :
-                Log.i("MOOD", "Click = history");
+            // Comment Button Clicked
+            case R.id.fragment_page_camembert_btn :
 
                 // Create à PREF_KEY_MOOD String with a Gson Object
                 final Gson gson = new GsonBuilder()
@@ -143,20 +145,29 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
                         .create();
                 String json = gson.toJson(mMoodPreferences);
 
-                Intent historyActivity = new Intent(MainActivity.this, HistoryActivity.class);
-                historyActivity.putExtra(KEY_PREFERENCES,json);
+                Intent intentActivity = null;
 
-                startActivity(historyActivity);
+                // Call activity HistoryActivity
+                Log.i("MOOD", "Click = history");
+                if (view.getId() == R.id.fragment_page_history_btn) {
+                    intentActivity = new Intent(MainActivity.this, HistoryActivity.class);
+                }
+
+                // Call activity CamembertActivity
+                Log.i("MOOD", "Click = camembert");
+                if (view.getId() == R.id.fragment_page_camembert_btn) {
+                    intentActivity = new Intent(MainActivity.this, CamembertActivity.class);
+                }
+                intentActivity.putExtra(KEY_PREFERENCES, json);
+                startActivity(intentActivity);
                 break;
 
-
-            // Comment Button Clicked
+            // Comment Button Clicked : call comment dialog Box
             case R.id.fragment_page_comment_btn :
                 Log.i("MOOD", "Click = comment");
 
                 // Create, call and manage the Comment Dialog
                 manageCommentDialog();
-
                 break;
         }
     }
