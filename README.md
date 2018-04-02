@@ -1,5 +1,7 @@
 ![MoodTracker Img](/app/src/main/res/drawable/moods.png)
 
+![MoodTracker Img](/app/src/main/res/drawable/fonctions.png)
+
 # MoodTracker
 
 MoodTracker is a Android App
