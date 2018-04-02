@@ -1,6 +1,6 @@
 ![MoodTracker Img](/app/src/main/res/drawable/moods.png)
 
-![MoodTracker Img](/app/src/main/res/drawable/fonctions.png)
+![MoodTracker Img](/app/src/main/res/drawable/functions.png)
 
 # MoodTracker
 
