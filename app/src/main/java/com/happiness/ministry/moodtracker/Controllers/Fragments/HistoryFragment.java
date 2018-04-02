@@ -134,19 +134,9 @@ public class HistoryFragment extends Fragment implements View.OnClickListener{
 
         // Calculate the difference between the current date and the save date in number of Days
         int deltaDate = getDaysBetweenTwoDates(new Date(),dateNoTime);
-        Log.i("MOOD", "Current date = "+new Date());
-        Log.i("MOOD", "Date saved   = "+mDate);
-        Log.i("MOOD", "Date no time = "+dateNoTime);
-        Log.i("MOOD", "deltaDate    = "+deltaDate);
 
         switch (deltaDate) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
+            case 1: case 2: case 3: case 4: case 5: case 6: case 7:
                 // Get back the history comment which must be put on the fragment
                 String historyComment = getResources().getStringArray(R.array.array_history_comment)[deltaDate];
                 // Put the history comment on the fragment

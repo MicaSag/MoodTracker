@@ -49,6 +49,11 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         // Initialize the application
         this.init();
@@ -109,11 +114,6 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
             // Creation of a new MoodPreferences Object with one Mood by Default
             mMoodPreferences = new MoodPreferences();
         }
-        Log.i("MOOD", "____END____");
-        Log.i("MOOD", "Index        = "+String.valueOf(mMoodPreferences.getLastSavedMoodIndex()));
-        Log.i("MOOD", "Mood Index   = "+mMoodPreferences.getLastMood().getMoodIndex());
-        Log.i("MOOD", "Comment      = "+mMoodPreferences.getLastMood().getComment());
-        Log.i("MOOD", "Date         = "+DateUtilities.getIntDateSSAAMMJJ(mMoodPreferences.getLastMood().getDate()));
     }
 
     // Method allowing to configure the viewPager
@@ -143,7 +143,6 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
             case R.id.fragment_page_camembert_btn :
 
                 // If a history is present
-                Log.i("MOOD", "SIZE ="+mMoodPreferences.getMoodHistorical().size());
                 if (mMoodPreferences.getMoodHistorical().size() > 1) {
                     Log.i("MOOD", "SIZE > 1");
                     // Create à PREF_KEY_MOOD String with a Gson Object
@@ -179,7 +178,6 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
             // Comment Button Clicked : call comment dialog Box
             case R.id.fragment_page_comment_btn :
                 Log.i("MOOD", "Click = comment");
-
                 // Create, call and manage the Comment Dialog
                 manageCommentDialog();
                 break;
@@ -190,7 +188,6 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
     private void manageCommentDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
         String titleText = "Commentaire";
         // Initialize a new spannable string builder instance
         SpannableStringBuilder ssBuilder = new SpannableStringBuilder(titleText);
@@ -237,7 +234,6 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
                 dialog.cancel();
             }
         });
-
         builder.show();
     }
 
@@ -248,11 +244,6 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
 
         // Change the day Mood in MoodPreference
         mMoodPreferences.getLastMood().setMoodIndex(pager.getCurrentItem());
-
-        Log.i("MOOD","Tab Index = "+ String.valueOf(mMoodPreferences.getLastSavedMoodIndex()));
-        Log.i("MOOD","Type Mood = "+ mMoodPreferences.getLastMood().getMoodIndex());
-        Log.i("MOOD","Comment   = "+ mMoodPreferences.getLastMood().getComment());
-        Log.i("MOOD","Date      = "+ String.valueOf(DateUtilities.getIntDateSSAAMMJJ(mMoodPreferences.getLastMood().getDate())));
 
         // Create à PREF_KEY_MOOD String with a Gson Object
         final Gson gson = new GsonBuilder()
