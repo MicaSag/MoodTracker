@@ -21,18 +21,18 @@
                     android:id="@+id/fragment_history_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="@dimen/fragment_history_size_text_marginStart"
                     android:text=""
                     android:textColor="@android:color/black"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/fragment_history_size_text_textSize"
                     android:textStyle="bold"/>
                 <!-- Comment Button -->
                 <Button
                     android:id="@+id/fragment_history_btn"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="@dimen/fragment_history_size_comment_btn_width"
+                    android:layout_height="@dimen/fragment_history_size_comment_btn_height"
                     android:layout_gravity="center|end"
-                    android:layout_margin="20dp"
+                    android:layout_margin="@dimen/fragment_history_size_comment_btn_margin"
                     android:background="@drawable/ic_comment_black_48px"/>
             </FrameLayout>
         </LinearLayout>

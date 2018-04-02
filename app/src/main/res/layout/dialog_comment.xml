@@ -8,9 +8,8 @@
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:layout_marginBottom="6dp"/>
-
+            android:layout_marginTop="@dimen/activity_camembert_size_input_marginTop"
+            android:layout_marginLeft="@dimen/activity_camembert_size_input_marginLeft"
+            android:layout_marginRight="@dimen/activity_camembert_size_input_marginRight"
+            android:layout_marginBottom="@dimen/activity_camembert_size_input_marginBottom"/>
 </LinearLayout>

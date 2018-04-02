@@ -13,4 +13,7 @@
         <item name="banana_yellow">#fff9ec4f</item>
     </array>
 
+    <!-- Background Toast comment -->
+    <color name="colorToastBackground">#323232</color>
+
 </resources>

@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
 
             // If the backup date of the last mood is smaller than the current date
             // Then it is a new day
-            Log.i("MOOD", "DateCurrent      = "+DateUtilities.getIntDateSSAAMMJJ(new Date()));
             if ( DateUtilities.getIntDateSSAAMMJJ(mMoodPreferences.getLastMood().getDate())
                     < DateUtilities.getIntDateSSAAMMJJ(new Date()) ){
 
@@ -136,7 +135,7 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
 
             // History Button Clicked
             case R.id.fragment_page_history_btn :
-            // Comment Button Clicked
+            // Camembert Button Clicked
             case R.id.fragment_page_camembert_btn :
 
                 // If a history is present

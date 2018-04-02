@@ -13,12 +13,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingTop="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:paddingTop="@dimen/activity_camembert_size_text_paddingTop"
+        android:layout_marginStart="@dimen/activity_camembert_size_text_marginStart"
+        android:layout_marginEnd="@dimen/activity_camembert_size_text_marginEnd"
         android:text="DISTRIBUTION OF YOUR MOODS"
         android:textColor="@android:color/black"
-        android:textSize="15sp"
+        android:textSize="@dimen/activity_camembert_size_text_textSize"
         android:textStyle="bold"/>
 
     <com.github.mikephil.charting.charts.PieChart
