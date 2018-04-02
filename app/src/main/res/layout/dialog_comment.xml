@@ -11,5 +11,6 @@
             android:layout_marginTop="@dimen/activity_camembert_size_input_marginTop"
             android:layout_marginLeft="@dimen/activity_camembert_size_input_marginLeft"
             android:layout_marginRight="@dimen/activity_camembert_size_input_marginRight"
+            android:textSize="15sp"
             android:layout_marginBottom="@dimen/activity_camembert_size_input_marginBottom"/>
 </LinearLayout>

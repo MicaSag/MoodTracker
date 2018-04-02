@@ -7,10 +7,14 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -186,7 +190,23 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
     private void manageCommentDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Commentaire");
+
+        String titleText = "Commentaire";
+        // Initialize a new spannable string builder instance
+        SpannableStringBuilder ssBuilder = new SpannableStringBuilder(titleText);
+
+        // Initialize a new relative size span instance
+        // Divide the text size oby 2 on this span
+        RelativeSizeSpan largeSizeText = new RelativeSizeSpan(0.7f);
+
+        // Apply the relative size span
+        ssBuilder.setSpan(
+                largeSizeText, // Span to add
+                0, // Start of the span
+                titleText.length(), // End of the span
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE // Do not extent the span when text add later
+        );
+        builder.setTitle(ssBuilder);
 
         // Get the layout inflater of the MainActivity
         LayoutInflater inflater = this.getLayoutInflater();
