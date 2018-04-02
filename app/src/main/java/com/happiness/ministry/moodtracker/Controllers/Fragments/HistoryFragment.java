@@ -17,6 +17,8 @@ import com.google.gson.GsonBuilder;
 import com.happiness.ministry.moodtracker.Models.Mood;
 import com.happiness.ministry.moodtracker.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static com.happiness.ministry.moodtracker.Utilities.DateUtilities.getDaysBetweenTwoDates;
@@ -94,13 +96,17 @@ public class HistoryFragment extends Fragment implements View.OnClickListener{
         fragmentHistoryLinear.findViewById(R.id.fragment_history_btn).setOnClickListener(this);
 
         // Initialization of the fragment
-        initHistoryFragment();
+        try {
+            initHistoryFragment();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         return fragmentHistoryLayout;
     }
 
     // Initialization of the fragment
-    private void initHistoryFragment() {
+    private void initHistoryFragment() throws ParseException {
         Log.i("MOOD", "_____initHistoryFragment_____");
 
         // Set color of the Fragment
@@ -121,9 +127,17 @@ public class HistoryFragment extends Fragment implements View.OnClickListener{
             fragmentHistoryButton.setVisibility(View.GONE);
         }
 
+        // Puts back to zero the hour of the date saved
+        String formatString = "%1$tY%1$tm%1$td";
+        String dateStringSSAAMMJ = String.format(formatString,mDate);
+        Date dateNoTime = new SimpleDateFormat("yyyyMMdd").parse(dateStringSSAAMMJ);
+
         // Calculate the difference between the current date and the save date in number of Days
-        int deltaDate = getDaysBetweenTwoDates(new Date(),mDate);
-        Log.i("MOOD", "deltaDate = "+deltaDate);
+        int deltaDate = getDaysBetweenTwoDates(new Date(),dateNoTime);
+        Log.i("MOOD", "Current date = "+new Date());
+        Log.i("MOOD", "Date saved   = "+mDate);
+        Log.i("MOOD", "Date no time = "+dateNoTime);
+        Log.i("MOOD", "deltaDate    = "+deltaDate);
 
         switch (deltaDate) {
             case 1:
@@ -171,7 +185,7 @@ public class HistoryFragment extends Fragment implements View.OnClickListener{
 
         // Display the Toast comment
         Toast toast = new Toast(getActivity());
-        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(toastCommentView);
         toast.show();
     }

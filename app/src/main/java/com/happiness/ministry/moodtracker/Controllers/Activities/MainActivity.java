@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -138,28 +139,38 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
             // Comment Button Clicked
             case R.id.fragment_page_camembert_btn :
 
-                // Create à PREF_KEY_MOOD String with a Gson Object
-                final Gson gson = new GsonBuilder()
-                        .serializeNulls()
-                        .disableHtmlEscaping()
-                        .create();
-                String json = gson.toJson(mMoodPreferences);
+                // If a history is present
+                Log.i("MOOD", "SIZE ="+mMoodPreferences.getMoodHistorical().size());
+                if (mMoodPreferences.getMoodHistorical().size() > 1) {
+                    Log.i("MOOD", "SIZE > 1");
+                    // Create à PREF_KEY_MOOD String with a Gson Object
+                    final Gson gson = new GsonBuilder()
+                            .serializeNulls()
+                            .disableHtmlEscaping()
+                            .create();
+                    String json = gson.toJson(mMoodPreferences);
 
-                Intent intentActivity = null;
+                    Intent intentActivity = null;
 
-                // Call activity HistoryActivity
-                Log.i("MOOD", "Click = history");
-                if (view.getId() == R.id.fragment_page_history_btn) {
-                    intentActivity = new Intent(MainActivity.this, HistoryActivity.class);
+                    // Call activity HistoryActivity
+                    Log.i("MOOD", "Click = history");
+                    if (view.getId() == R.id.fragment_page_history_btn) {
+                        intentActivity = new Intent(MainActivity.this, HistoryActivity.class);
+                    }
+
+                    // Call activity CamembertActivity
+                    Log.i("MOOD", "Click = camembert");
+                    if (view.getId() == R.id.fragment_page_camembert_btn) {
+                        intentActivity = new Intent(MainActivity.this, CamembertActivity.class);
+                    }
+                    intentActivity.putExtra(KEY_PREFERENCES, json);
+                    startActivity(intentActivity);
                 }
-
-                // Call activity CamembertActivity
-                Log.i("MOOD", "Click = camembert");
-                if (view.getId() == R.id.fragment_page_camembert_btn) {
-                    intentActivity = new Intent(MainActivity.this, CamembertActivity.class);
+                // Not present history
+                else{
+                    Toast toast = Toast.makeText(this, "Not still of present history", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
-                intentActivity.putExtra(KEY_PREFERENCES, json);
-                startActivity(intentActivity);
                 break;
 
             // Comment Button Clicked : call comment dialog Box

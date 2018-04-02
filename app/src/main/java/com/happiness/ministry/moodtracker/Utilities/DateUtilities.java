@@ -2,6 +2,8 @@ package com.happiness.ministry.moodtracker.Utilities;
 
 import android.util.Log;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -30,13 +32,17 @@ public class DateUtilities {
     }
 
     // Calculate the difference between two dates in number of Days
-    public static int getDaysBetweenTwoDates(Date date1, Date date2) {
+    public static int getDaysBetweenTwoDates(Date date1, Date date2){
 
         long period1hour = 1000*60*60;     // 1000 milliseconds * 60 seconds * 60 minutes = 1 hour
         long period1day  = period1hour*24; // 1 hour * 24 = 1 day
 
         // Calculate the difference between two dates in milliseconds
-        long difference = Math.abs(date1.getTime()-date2.getTime());
+        //long difference = Math.abs(date1.getTime()-date2.getTime());
+        long difference = date1.getTime()-date2.getTime();
+
+        Log.i("MOOD", "difference    = "+difference);
+        Log.i("MOOD", "period1day    = "+period1day);
 
         // Return the number of days between two dates
         return (int) (difference / period1day);

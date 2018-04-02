@@ -22,9 +22,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
-                    android:text="Il y'a une semaine"
+                    android:text=""
                     android:textColor="@android:color/black"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"/>
                 <!-- Comment Button -->
                 <Button
