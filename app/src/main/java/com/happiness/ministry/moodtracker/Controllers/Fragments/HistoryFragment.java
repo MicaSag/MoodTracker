@@ -4,10 +4,12 @@ package com.happiness.ministry.moodtracker.Controllers.Fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -157,8 +159,23 @@ public class HistoryFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
 
-        // Display the comment
-        Toast.makeText(getActivity(), mComment, Toast.LENGTH_LONG).show();
+        // Get the layout inflater of the HistoryFragment
+        LayoutInflater inflater = this.getLayoutInflater();
+
+        // Inflate the layout of the toast comment
+        View toastCommentView = inflater.inflate(R.layout.toast_comment, null);
+
+        // Retrieves the text field of the toast_comment_text
+        TextView text = toastCommentView.findViewById(R.id.toast_comment_text);
+
+        // Set the Text to show in TextView
+        text.setText(mComment);
+
+        // Display the Toast comment
+        Toast toast = new Toast(getActivity());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(toastCommentView);
+        toast.show();
     }
 }
 

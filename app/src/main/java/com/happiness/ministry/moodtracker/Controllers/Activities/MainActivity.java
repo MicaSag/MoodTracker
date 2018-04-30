@@ -165,7 +165,6 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Commentaire");
 
-
         // Get the layout inflater of the MainActivity
         LayoutInflater inflater = this.getLayoutInflater();
 
