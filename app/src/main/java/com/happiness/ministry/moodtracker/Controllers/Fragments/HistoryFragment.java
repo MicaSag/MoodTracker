@@ -15,9 +15,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.happiness.ministry.moodtracker.Models.Mood;
-import com.happiness.ministry.moodtracker.Models.MoodPreferences;
 import com.happiness.ministry.moodtracker.R;
-import com.happiness.ministry.moodtracker.Utilities.DateUtilities;
 
 import java.util.Date;
 
@@ -148,7 +146,7 @@ public class HistoryFragment extends Fragment implements View.OnClickListener{
                     fragmentHistoryText.setText(getResources().getStringArray(R.array.array_history_comment)[8]);
                 }
                 // More than a month
-                if (deltaDate > 30) {
+                if (deltaDate >= 30) {
                     // Get back the history comment which must be put on the fragment
                     // and put it on the fragment
                     fragmentHistoryText.setText(getResources().getStringArray(R.array.array_history_comment)[9]);

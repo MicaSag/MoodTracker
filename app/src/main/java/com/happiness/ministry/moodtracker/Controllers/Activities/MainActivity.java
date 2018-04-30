@@ -1,12 +1,16 @@
 package com.happiness.ministry.moodtracker.Controllers.Activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -127,6 +131,7 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
         // Here, thanks to the callback implemented in the PageFragment
         // We are going to manage the click on the various buttons of PageFragment
         switch (view.getId()) {
+            // History Button Clicked
             case R.id.fragment_page_history_btn :
                 Log.i("MOOD", "Click = history");
 
@@ -143,11 +148,55 @@ public class MainActivity extends AppCompatActivity  implements PageFragment.OnB
                 startActivity(historyActivity);
                 break;
 
+            // Comment Button Clicked
             case R.id.fragment_page_comment_btn :
                 Log.i("MOOD", "Click = comment");
-                mMoodPreferences.getLastMood().setComment("I'have clicked on COMMENT");
+
+                // Create, call and manage the Comment Dialog
+                manageCommentDialog();
+
                 break;
         }
+    }
+
+    // Create and manage the Comment Dialog
+    private void manageCommentDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Commentaire");
+
+
+        // Get the layout inflater of the MainActivity
+        LayoutInflater inflater = this.getLayoutInflater();
+
+        // Inflate the layout of the dialog comment
+        View dialogCommentView = inflater.inflate(R.layout.dialog_comment, null);
+
+        // Retrieves the input field of the dialog_comment_input
+        final EditText input = dialogCommentView.findViewById(R.id.dialog_comment_input);
+
+        // Link the AlertDialog at the view dialogCommentView
+        builder.setView(dialogCommentView);
+
+        // Set up the buttons
+        // Validate Button
+        builder.setPositiveButton("VALIDER", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                // Save comment into mood preferences
+                mMoodPreferences.getLastMood().setComment(input.getText().toString());
+            }
+        });
+        // Cancel Button
+        builder.setNegativeButton("ANNULER", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
     }
 
     @Override
